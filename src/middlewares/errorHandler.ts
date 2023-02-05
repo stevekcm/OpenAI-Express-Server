@@ -17,8 +17,8 @@ export const globalError = (
   next: NextFunction
 ) => {
   console.error(err);
-  res.json({
-    status: res.statusCode === 200 ? 500 : res.statusCode,
+  const status = res.statusCode === 200 ? 500 : res.statusCode;
+  res.status(status).json({
     message: err.message,
     stack: process.env.NODE_ENV === "production" ? null : err.stack,
   });

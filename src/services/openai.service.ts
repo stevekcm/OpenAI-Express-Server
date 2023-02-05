@@ -4,7 +4,7 @@ const createCompletion = async (model: string, prompt: string) => {
   const response = await openai.createCompletion({
     model: model,
     prompt: prompt,
-    max_tokens: 7,
+    max_tokens: 512,
     temperature: 0,
   });
 

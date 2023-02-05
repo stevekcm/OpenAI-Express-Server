@@ -11,7 +11,9 @@ const create = [
 
       const completion = await openaiService.createCompletion(model, prompt);
 
-      return res.status(200).json(completion);
+      const data = completion?.split("\n\n");
+
+      return res.status(200).json(data);
     } catch (e) {
       next(e);
     }
